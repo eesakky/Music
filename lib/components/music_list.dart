@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
-import '../constant.dart';
+import 'package:music/components/music.dart';
+import 'package:music/constant.dart';
 
 class MusicList extends StatefulWidget {
-  final musicLabel;
-  final musicImage;
+  final Music music;
 
-  MusicList({this.musicImage, this.musicLabel});
+  MusicList({Key key, @required this.music}) : super(key: key);
 
   @override
   _MusicListState createState() => _MusicListState();
 }
 
 class _MusicListState extends State<MusicList> {
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: appBackgroundColor,
-      appBar: AppBar(
-        title: Text("My Music"),
-      ),
-      body: Container(),
+    return Stack(
+      children: <Widget>[
+        Image.asset(
+          widget.music.imageUrl,
+          height: appPosterImageSize,
+        ),
+      ],
     );
   }
 }
