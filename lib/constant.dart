@@ -6,4 +6,5 @@ const appDefaultPadding = 20.0;
 const appDefaultShadow =
     BoxShadow(offset: Offset(0, 15), blurRadius: 27, color: Colors.black12);
 
-const appPosterImageSize = 140.0;
+const appPosterImageSize = 120.0;
+const appCoverImageSize = 110.0;

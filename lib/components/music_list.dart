@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:music/components/music.dart';
 import 'package:music/constant.dart';
@@ -18,13 +20,36 @@ class _MusicListState extends State<MusicList> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Image.asset(
+    return Stack(children: <Widget>[
+      Positioned(
+        top: 5,
+        child: Image.asset(
           widget.music.imageUrl,
           height: appPosterImageSize,
         ),
-      ],
-    );
+      ),
+      Positioned(
+          top: 5,
+          left: appPosterImageSize / 2,
+          child: Image.asset(
+            'assets/images/cover_cd.png',
+            width: appCoverImageSize,
+            height: appCoverImageSize,
+          )),
+      ClipRRect(
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+          child: Container(
+            padding: EdgeInsets.only(bottom: 30),
+            width: appPosterImageSize,
+            height: appPosterImageSize + 30,
+            child: Image.asset(
+              widget.music.imageUrl,
+              height: appPosterImageSize,
+            ),
+          ),
+        ),
+      )
+    ]);
   }
 }
