@@ -51,6 +51,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
+        elevation: 0,
         title: Text("My Music"),
       ),
       body: Column(
