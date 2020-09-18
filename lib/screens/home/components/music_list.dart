@@ -1,22 +1,19 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:music/components/music.dart';
+import 'package:music/models/music.dart';
 import 'package:music/constant.dart';
 
-class MusicList extends StatefulWidget {
+class MusicList extends StatelessWidget {
+  final int itemIndex;
+  final Function press;
   final Music music;
 
-  MusicList({Key key, @required this.music}) : super(key: key);
-
-  @override
-  _MusicListState createState() => _MusicListState();
-}
-
-class _MusicListState extends State<MusicList> {
-  void initState() {
-    super.initState();
-  }
+  const MusicList({
+    Key key,
+    this.itemIndex,
+    this.music,
+    this.press,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +23,7 @@ class _MusicListState extends State<MusicList> {
         Positioned(
           top: 5,
           child: Image.asset(
-            widget.music.imageUrl,
+            music.image,
             height: appPosterImageSize,
           ),
         ),
@@ -46,17 +43,17 @@ class _MusicListState extends State<MusicList> {
               width: appPosterImageSize,
               height: appPosterImageSize + 30,
               child: Image.asset(
-                widget.music.imageUrl,
+                music.image,
                 height: appPosterImageSize,
               ),
             ),
           ),
         ),
         Positioned(
-          bottom: 15,
+          bottom: 0,
           width: appPosterImageSize,
           child: Center(
-            child: Text(widget.music.label,
+            child: Text(music.label,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
           ),
         ),

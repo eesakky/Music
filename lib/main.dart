@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music/constant.dart';
-import 'package:music/screens/home.dart';
+import 'package:music/screens/home/home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
