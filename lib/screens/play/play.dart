@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:music/constant.dart';
+import 'package:music/screens/play/components/body.dart';
 
 class Play extends StatefulWidget {
   @override
@@ -8,6 +10,12 @@ class Play extends StatefulWidget {
 class _PlayState extends State<Play> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: appBackgroundColor,
+      appBar: AppBar(
+        title: Text("Now Playing"),
+      ),
+      body: Body(),
+    );
   }
 }

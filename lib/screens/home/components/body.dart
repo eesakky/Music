@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music/models/music.dart';
 import 'package:music/screens/home/components/music_list.dart';
+import 'package:music/screens/play/play.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -16,6 +17,10 @@ class Body extends StatelessWidget {
                   itemBuilder: (context, index) => MusicList(
                         itemIndex: index,
                         music: musics[index],
+                        press: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Play()));
+                        },
                       ))
             ],
           ))
